@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- We need a 'bean' for our person object. -->
+	<!-- A bean is used in java to encapsulate an object -->
+	<bean id="personBean" class="com.lab3.Person">
+	<constructor-arg name="lastName" value="Smith"></constructor-arg>
+    <constructor-arg name="firstName" value="John"></constructor-arg>
+	
+	<constructor-arg name="address" ref="addressBean"></constructor-arg>
+	</bean>
+	<bean id="addressBean" class="com.lab3.Address">
+	
+	<constructor-arg name="street" value="An Sean Bhaile"></constructor-arg>
+    <constructor-arg name="town" value="Galway"></constructor-arg>
+     <constructor-arg name="county" value="Galway County"></constructor-arg>
+	</bean>
+
+
+</beans>
