@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- We need a 'bean' for our person object. -->
+	<!-- A bean is used in java to encapsulate an object -->
+	<bean id="carBean1" class="com.lab3.Car">
+	
+	<constructor-arg name="beanID" value="2017-G-1"></constructor-arg>
+    <constructor-arg name="reg" value="2017-G-1"></constructor-arg>
+    <constructor-arg name="doors" value="5"></constructor-arg>
+    <constructor-arg name="colour" value="Red"></constructor-arg>
+    <constructor-arg name="engine" ref="engineBean1.6"></constructor-arg>
+	</bean>
+	
+	<bean id="carBean2" class="com.lab3.Car">
+	
+	<constructor-arg name="beanID" value="2000-G-456"></constructor-arg>
+    <constructor-arg name="reg" value="2000-G-456"></constructor-arg>
+    <constructor-arg name="doors" value="4"></constructor-arg>
+    <constructor-arg name="colour" value="Green"></constructor-arg>
+    <constructor-arg name="engine" ref="engineBean1.6"></constructor-arg>
+	</bean>
+	
+	<bean id="carBean3" class="com.lab3.Car">
+	
+	<constructor-arg name="beanID" value="2010-WH-77"></constructor-arg>
+    <constructor-arg name="reg" value="2010-WH-77"></constructor-arg>
+    <constructor-arg name="doors" value="5"></constructor-arg>
+    <constructor-arg name="colour" value="Black"></constructor-arg>
+    <constructor-arg name="engine" ref="engineBean1.2"></constructor-arg>
+	</bean>
+	
+	<bean id="engineBean1.2" class="com.lab3.Engine">
+	<constructor-arg name="size" value="1.2"></constructor-arg>
+    <constructor-arg name="fuel" value="Petrol"></constructor-arg>
+	</bean>
+	
+	<bean id="engineBean1.6" class="com.lab3.Engine">
+	
+	<constructor-arg name="size" value="1.6"></constructor-arg>
+    <constructor-arg name="fuel" value="Diesel"></constructor-arg>
+	</bean>
+
+</beans>
