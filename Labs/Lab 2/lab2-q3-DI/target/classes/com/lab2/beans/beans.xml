@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- We need a 'bean' for our person object. -->
+	<!-- A bean is used in java to encapsulate an object -->
+	<bean id="personBean" class="com.lab2.Person">
+	</bean>
+
+
+</beans>
