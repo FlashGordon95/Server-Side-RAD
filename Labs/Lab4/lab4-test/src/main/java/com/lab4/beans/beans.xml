@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- We need a 'bean' for our person object. -->
+	<!-- A bean is used in java to encapsulate an object -->
+	<bean id="ssRad" class="com.lab4.Module">
+	<constructor-arg name="moduleName" value="Server Side RAD"></constructor-arg>
+    <constructor-arg name="credits" value="30"></constructor-arg>
+    <constructor-arg name="allCA" value="true"></constructor-arg>
+	</bean>
+	
+	
+	<bean id="project" class="com.lab4.Module">
+	<constructor-arg name="moduleName" value="3rd year project"></constructor-arg>
+    <constructor-arg name="credits" value="30"></constructor-arg>
+    <constructor-arg name="allCA" value="true"></constructor-arg>
+	</bean>
+	
+	<bean id="javaProgramming" class="com.lab4.Module">
+	<constructor-arg name="moduleName" value="java Programming"></constructor-arg>
+	
+    <constructor-arg value="true"></constructor-arg>
+    <constructor-arg name="credits" value="30"></constructor-arg>
+	</bean>
+	
+
+	<bean id="gerry" class="com.lab4.Student">
+	<!-- When using constructor-arg 'name' the order does not matter when all are named. If any 1 arg is not named then order is important -->
+	
+	
+	
+	<constructor-arg >
+		<list>
+			<ref bean="ssRad" />
+			<ref bean="javaProgramming" />
+			<ref bean="project" />
+		</list>
+	</constructor-arg>
+	<constructor-arg value ="Gerard Harrison" ></constructor-arg>
+	
+	<!-- Arguement names are not required, however when leaving them out we need to preserve the order of the arguements i.e Student(String, List) needs to have the constructor args ordered the right way. -->
+	<!-- When using constructor-arg 'name' the order does not matter when all are named. If any 1 arg is not named then order is important -->
+	
+	</bean>
+	
+	<bean id="ryan" class="com.lab4.Student">
+	<constructor-arg name="name" value ="Ryan Gordon" ></constructor-arg>
+	<constructor-arg name="modules">
+		<list>
+			<ref bean="ssRad" />
+			<ref bean="project" />
+		</list>
+	</constructor-arg>
+	</bean>
+</beans>
