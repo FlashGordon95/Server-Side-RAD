@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+			
+	
+	
+	<bean id="student" class="com.sample10.Student" autowire="constructor">
+	</bean>
+	
+	<bean id="address" class="com.sample10.Address">
+	<constructor-arg name="town" value ="GMIT" ></constructor-arg>
+	<constructor-arg name="county" value ="GY" ></constructor-arg>
+	</bean>
+	<bean id="address2" class="com.sample10.Address">
+	<constructor-arg name="town" value ="NUIG" ></constructor-arg>
+	<constructor-arg name="county" value ="GY" ></constructor-arg>
+	</bean>
+	
+	
+	
+
+</beans>
