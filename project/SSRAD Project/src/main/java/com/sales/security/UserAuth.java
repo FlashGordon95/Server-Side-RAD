@@ -5,6 +5,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 /**
  * User Auth - A class user to restrict usage to unauthenticated users of the app. 
@@ -22,7 +23,7 @@ public class UserAuth extends WebSecurityConfigurerAdapter {
 					.antMatchers("/").permitAll()
 					.antMatchers("/secure/**").authenticated()
 					.and().formLogin().permitAll() // .loginPage("/login") // for custom login page
-					.and().logout().permitAll();
+					.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout")).logoutSuccessUrl("/login").permitAll();
 	}
 
 	@Autowired
