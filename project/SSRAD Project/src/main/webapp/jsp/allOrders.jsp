@@ -50,5 +50,14 @@
 					
 				</c:forEach>
 			</table>
+			<table>
+			  <tr>
+			    <td><a href="/">Home</a></td>
+			    <td><a href="/secure/customers/addOrder"> Add a new order</a></td>
+			    <td><a href="/secure/products/showProducts">List Products</a></td>
+			    <td><a href="/secure/customers/showCustomers">List Customers</a></td>
+			    <td><a href="/logout">Logout</a></td>
+			  </tr>
+			  </table>
 	</body>
 </html>

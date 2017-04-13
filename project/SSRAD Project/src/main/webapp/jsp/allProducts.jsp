@@ -36,5 +36,15 @@
 				</c:forEach>
 			</table>
 			
+	<table>
+	  <tr>
+	    <td><a href="/">Home</a></td>
+	    <td><a href="/secure/products/addProduct"> Add a new product</a></td>
+	    <td><a href="/secure/customers/showCustomers">List Customers</a></td>
+	    <td><a href="/secure/orders/showOrders">List Orders</a></td>
+	    <td><a href="/logout">Logout</a></td>
+	  </tr>
+	  </table>
+			
 	</body>
 </html>

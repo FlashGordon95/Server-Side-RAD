@@ -26,7 +26,7 @@ public class Product {
 	private String pDesc;
 	
 	@Column(name="QTYINSTOCK")
-	@Min(value=0)
+	@Min(value=1)
 	private int qtyInStock;
 	
 	@OneToMany(mappedBy="prod")
