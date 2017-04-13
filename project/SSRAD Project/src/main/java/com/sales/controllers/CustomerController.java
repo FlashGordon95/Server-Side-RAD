@@ -28,8 +28,8 @@ public class CustomerController {
 	
 	
 	@GetMapping(value = "/showCustomers")
-	public String getAllProducts(Model model){
-		model.addAttribute("AllCustomer", custServ.getCustomers());
+	public String getAllCustomers(Model model){
+		model.addAttribute("AllCustomers", custServ.getCustomers());
 		return "allCustomers";
 	}
 }

@@ -1,8 +1,12 @@
 package com.sales.repositories;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import com.sales.models.Customer;
 import com.sales.models.Order;
 import com.sales.models.Product;
 
@@ -17,7 +21,7 @@ import com.sales.models.Product;
 @Repository
 public interface OrderDAO extends JpaRepository<Order, Long> {
 
-	public Product findByoId(String pId);
+	public List<Order> findBycust(Customer cust);
 }
 
 

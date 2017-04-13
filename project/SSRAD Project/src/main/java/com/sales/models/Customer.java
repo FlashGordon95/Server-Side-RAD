@@ -1,5 +1,6 @@
 package com.sales.models;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -14,7 +15,7 @@ import org.hibernate.validator.constraints.NotBlank;
 
 @Entity
 @Table(name="CUSTOMERS")
-public class Customer {
+public class Customer{
 	@Id
 	@GeneratedValue
 	@Column(name="CID")
