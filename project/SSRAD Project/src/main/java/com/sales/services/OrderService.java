@@ -5,25 +5,28 @@ import java.util.ArrayList;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.sales.models.Order;
 import com.sales.models.Product;
+import com.sales.repositories.OrderDAO;
 import com.sales.repositories.ProductDAO;
 
 /**
- * ProductService
- * A service class which consumes a DAO interface for products.
- * Encapsulates the process for retrieving products from the DB, 
+ * OrderService
+ * A service class which consumes a DAO interface for orders.
+ * Encapsulates the process for retrieving orders from the DB, 
  * adding new items to the DB and updating existing items.
  * 
  * @author Ryan Gordon
  *
  */
-@Service("ProdService")
-public class ProductService {
+
+@Service("OrderService")
+public class OrderService {
 
 	@Autowired
-	private ProductDAO repo;
+	private OrderDAO repo;
 	
-	public void addProduct(Product p){
+	public void addProduct(Order p){
 		try {
 			repo.save(p);
 			
@@ -33,9 +36,9 @@ public class ProductService {
 	}
 		
 	
-	public ArrayList<Product> getProducts(){
+	public ArrayList<Order> getProducts(){
 		System.out.print("Tring to retreive products from DB");
-		return (ArrayList<Product>) repo.findAll();
+		return (ArrayList<Order>) repo.findAll();
 	}
 
 }
