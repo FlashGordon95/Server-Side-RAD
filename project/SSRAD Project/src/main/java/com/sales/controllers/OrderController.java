@@ -20,6 +20,11 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import com.sales.exceptions.NotCIdException;
+import com.sales.exceptions.NotPIdException;
+import com.sales.exceptions.NullCIdException;
+import com.sales.exceptions.NullPIdException;
+import com.sales.exceptions.QtyException;
 import com.sales.models.Order;
 import com.sales.models.Product;
 import com.sales.services.OrderService;
@@ -54,7 +59,7 @@ public class OrderController {
 	 * @param model
 	 * @return jsp page
 	 */
-	@GetMapping(value = "/addOrder")
+	@RequestMapping(value = "/addOrder", method = RequestMethod.GET)
 	public String getProduct(Model model){
 		// Create a model for the form
 		Order prod = new Order();
@@ -72,54 +77,43 @@ public class OrderController {
 	 * @throws SQLException 
 	 */
 	@RequestMapping(value = "/addOrder",method=RequestMethod.POST)
-	public String submitProduct(@Valid @ModelAttribute ("Order") Order order, BindingResult result,HttpServletRequest request) throws SQLException{
-		
-		//Set up our date format
-		DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
-		//Initialise a new date object
-		Date date = new Date();
-		//Add it to our order
-		order.setOrderDate(dateFormat.format(date));
-		
-		if(order.getQty() > order.getProd().getQtyInStock()){
-			System.out.println("\n\n\n\n\n\n\n\n\n We have a problem, too much ordered not enough product in stock!");
-			
-			//Redirect the user to an error page
-			request.setAttribute("prodId", order.getProd().getpId());
-	        request.setAttribute("custId", order.getCust().getcId());
-	        request.setAttribute("qty", order.getQty());
-	        
-
-	        
-	       
-				throw new SQLException();
-			
-		}
-		//Check if the Prod ID exists in the product table
-		
-		
-		//Check if the Cust ID exists in the custs table
-		
-		
-		
-		
-		//Try to add to DB
-		orderServ.addOrder(order);
-		System.out.println(order.toString());
-		//If problem with DB go back to addCustomer page
+	public String submitProduct(@Valid @ModelAttribute ("Order") Order order, BindingResult result,HttpServletRequest request, Model m)
+	{
 		if (result.hasErrors()) {
 			return "addOrder";
 		}
-		//If successful redirect to showCustomers page
-		return "redirect:showOrders";
+		else{
+			
+		
+			//Set up our date format
+			DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
+			//Initialise a new date object
+			Date date = new Date();
+			//Add it to our order
+			order.setOrderDate(dateFormat.format(date));
+			
+			try{
+				//Try to add to DB
+				orderServ.addOrder(order);
+				System.out.println(order.toString());
+				//If problem with DB go back to addCustomer page
+				//If successful redirect to showCustomers page
+				return "redirect:showOrders";
+			}catch (NullCIdException | NullPIdException | NotCIdException | NotPIdException | QtyException e) {
+				e.printStackTrace();
+				e.getMessage();
+				
+				
+				//Add the error message and some order information to the page.
+				m.addAttribute("message", e.getMessage());
+				m.addAttribute("cid", order.getCust().getcId());
+				m.addAttribute("pid", order.getProd().getpId());
+				m.addAttribute("qty", order.getQty());
+				return "databaseError";
+			}
+		
+		
+		}
 	}
-	
-	
-	
-	// Specify name of a specific view that will be used to display the error:
-    @ExceptionHandler({SQLException.class})
-    public String databaseError() {
-      return "databaseError";
-    }
 
 }
