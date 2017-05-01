@@ -2,7 +2,7 @@
 
 
 
-# Project
+## Project
 
 
 The project is a java application which uses the Spring Boot Framework.
@@ -11,21 +11,26 @@ The project is a java application which uses the Spring Boot Framework.
 The application should be written in Spring Boot based on the skeleton application, and should use the Spring MVC n-tier architecture – Controllers, Services, Repositories, Views, with the appropriate data/logic in each tier.  
 The Model for the application consists of three objects:  
 #### Product
-+Product ID  
-+Description  
-+Quantity In Stock  
++ Product ID  
++ Description  
++ Quantity In Stock  
+
 
 #### Customer  
-+Customer ID  
-+Customer Name  
++ Customer ID  
++ Customer Name  
+
+  
 #### Order  
-+Order ID  
-+Order Quantity  
-+Order Date  
++ Order ID  
++ Order Quantity  
++ Order Date  
+
+
 These models have been given in the skeleton code for the project and their dependencies already set up.
 
 
-Screenshots
+## Screenshots
 
 
 ### Orders Page
@@ -39,3 +44,8 @@ Screenshots
 #### Small screen version
 
 ![order page](http://i.imgur.com/3VNBWxZ.png)
+
+
+## Order Exceptions
+![nosuchcust](http://i.imgur.com/IcoVrBI.png)
+![nostock](http://i.imgur.com/bboURhN.png)

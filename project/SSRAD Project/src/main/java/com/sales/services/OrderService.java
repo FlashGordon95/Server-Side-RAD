@@ -77,10 +77,11 @@ public class OrderService {
 			
 			
 		if  (cust==null) {
-			
+			cust = order.getCust();
 			throw new NotCIdException("No such customer:"+cust.getcId());
 		} else if (prod==null) {
-			
+			prod = order.getProd();
+			cust = order.getCust();
 			throw new NotPIdException("No Such Product :"+order.getProd().getpId()+" or no such customer:"+order.getCust().getcId());
 		}
 		/**
